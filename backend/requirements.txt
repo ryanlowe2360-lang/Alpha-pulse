@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+praw
+tweepy
+yfinance
+httpx
+python-dotenv
+anthropic
+beautifulsoup4
