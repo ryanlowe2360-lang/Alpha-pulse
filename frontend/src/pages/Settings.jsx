@@ -1,8 +1,10 @@
 import { useAPI } from "../hooks/useAPI";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
 export default function Settings() {
   const { data, loading } = useAPI(() =>
-    fetch("http://localhost:8000/health")
+    fetch(`${API_URL}/health`)
       .then((r) => r.json())
       .catch(() => null)
   );
@@ -34,7 +36,7 @@ export default function Settings() {
             {loading
               ? "Checking..."
               : data?.status === "ok"
-              ? "Connected to API (http://localhost:8000)"
+              ? `Connected to API (${API_URL})`
               : "Cannot reach backend"}
           </span>
         </div>
